@@ -4,30 +4,24 @@ import { useState } from 'react'
 import axios from 'axios'
 
 
-const Register = () => { 
-
-  const [username,setUsername]=useState("")
-  const [email,setEmail]=useState("")
-  const [password,setPassword]=useState("")
-  const [error,setError]=useState(false)
-  const navigate = useNavigate()
-
-  const handleRegister = async () => {
-    try{
-      const res = await axios.post("/api/auth/register",{username,email,password})
-      setUsername(res.data.username)
-      setEmail(res.data.email)
-      setPassword(res.data.password)
-      setError(false)
-      navigate('/login')
+const handleRegister = async () => {
+  try {
+      // Attempt to register the user by sending a POST request to the "/api/auth/register" endpoint
+      const res = await axios.post("/api/auth/register", { username, email, password });
       
-      
-    }
-    catch(err){
-      setError(true)
-      console.log(err)
-    }
+      // If registration is successful (no errors), update state variables and navigate to the login page
+      setUsername(res.data.username);
+      setEmail(res.data.email);
+      setPassword(res.data.password);
+      setError(false); // Reset error state to false
+      navigate('/login'); // Navigate to the login page
+  } catch (err) {
+      // If an error occurs during registration, set the error state to true and log the error
+      setError(true);
+      console.log(err);
   }
+}  
+
  
 
   // console.log(username)

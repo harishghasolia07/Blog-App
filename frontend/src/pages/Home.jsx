@@ -3,13 +3,9 @@ import Footer from '../components/Footer'
 import HomePosts from '../components/HomePosts'
 import { useEffect,useState,useContext } from 'react'
 import axios from 'axios'
-// import {URL} from '../url'
 import { Link, useLocation } from 'react-router-dom'
 import Loader from '../components/Loader'
 import {UserContext} from '../context/UserContext'
-
-
-
 
 
 
