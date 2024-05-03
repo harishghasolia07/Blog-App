@@ -8,7 +8,7 @@ const PostSchema=new mongoose.Schema({
     },
     desc:{
         type:String,
-        required:false,
+        required:true,
         unique:true
     },
     photo:{
