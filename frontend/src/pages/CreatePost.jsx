@@ -25,7 +25,9 @@ const CreatePost = () => {
         setCat("")
         setCats(updatedCats)
         console.log(updatedCats)
+
     }
+    
 
     const deleteCategory = (i) => {
         let updatedCats = [...cats]
@@ -43,6 +45,10 @@ const CreatePost = () => {
             username:user.username,
             userId:user._id,
             categories:cats
+        }
+        if (!title.trim() || !desc.trim()) {
+            alert("Title and description must not be empty.");
+            return;
         }
         
         if(file){
