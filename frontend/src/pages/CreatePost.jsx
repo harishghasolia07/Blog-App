@@ -50,7 +50,7 @@ const CreatePost = () => {
             alert("Title must not be empty.");
             return;
         }
-        else if (!desc.trim()) {
+        if (!desc.trim()) {
             alert("description must not be empty.");
             return;
         }
