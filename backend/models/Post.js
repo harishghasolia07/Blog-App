@@ -4,13 +4,13 @@ const PostSchema=new mongoose.Schema({
     title:{
         type:String,
         required:true,
-        unique:true
+        // unique:true
     },
     desc:{
         type:String,
-        // required:true,
+        required:true,
         // unique:true
-        required:false,
+        // required:false,
     },
     photo:{
         type:String,
