@@ -46,8 +46,12 @@ const CreatePost = () => {
             userId:user._id,
             categories:cats
         }
-        if (!title.trim() || !desc.trim()) {
-            alert("Title and description must not be empty.");
+        if (!title.trim()) {
+            alert("Title must not be empty.");
+            return;
+        }
+        else if (!desc.trim()) {
+            alert("description must not be empty.");
             return;
         }
         
