@@ -18,6 +18,7 @@ const CreatePost = () => {
     const navigate = useNavigate()
 
     const addCategory = () => {
+        if (!cat.trim()) return; // Do not add if category is empty
         let updatedCats = [...cats]
         updatedCats.push(cat)
         setCat("")
@@ -33,6 +34,7 @@ const CreatePost = () => {
     }
 
     const addSource = () => {
+        if (!source.trim()) return; // Do not add if source is empty
         let updatedSources = [...sources]
         updatedSources.push(source)
         setSource("")
@@ -102,7 +104,7 @@ const CreatePost = () => {
                     <div className='flex flex-col'>
                         <div className='flex items-center space-x-1 md:space-x-8'>
                             <input value={cat} onChange={(e) => setCat(e.target.value)} className='px-4 py-2 outline-none' placeholder='Enter post category' type='text'/>
-                            <div onClick={addCategory} className='bg-black text-white px-4 py-2 font-semibold cursor-pointer '>Add</div>
+                            <div onClick={addCategory} className={`bg-black text-white px-4 py-2 font-semibold cursor-pointer ${cat.trim() ? '' : 'opacity-50 pointer-events-none'}`}>Add</div>
                         </div>
                         <div className='flex px-4 mt-3'>
                             {cats?.map((c, i) => (
@@ -116,7 +118,7 @@ const CreatePost = () => {
                     <div className='flex flex-col'>
                         <div className='flex items-center space-x-1 md:space-x-8'>
                             <input value={source} onChange={(e) => setSource(e.target.value)} className='px-4 py-2 outline-none' placeholder='Enter post source' type='text'/>
-                            <div onClick={addSource} className='bg-black text-white px-4 py-2 font-semibold cursor-pointer '>Add</div>
+                            <div onClick={addSource} className={`bg-black text-white px-4 py-2 font-semibold cursor-pointer ${source.trim() ? '' : 'opacity-50 pointer-events-none'}`}>Add</div>
                         </div>
                         <div className='flex px-4 mt-3'>
                             {sources?.map((s, i) => (
